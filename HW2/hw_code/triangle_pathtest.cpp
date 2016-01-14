@@ -26,6 +26,11 @@ TEST(triangle, C2) {
 }
 
 TEST(triangle, MCDC) {
+		EXPECT_EQ("OUT_OF_RANGE", triangle(0, 100, 100));
+    EXPECT_EQ("ISOSCELES", triangle(1, 100, 100));
+    EXPECT_EQ("EQUILATERAL", triangle(100, 100, 100));
+    EXPECT_EQ("NOT_A_TRIANGLE", triangle(200, 100, 100));
+    EXPECT_EQ("SCALENE", triangle(100, 101, 102));
 
 		/*First if*/
 		//T, F, T, F, T, F

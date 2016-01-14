@@ -26,6 +26,12 @@ TEST(commission, C2) {
 }
 
 TEST(commission, MCDC) {
+		EXPECT_EQ("STOP_PROGRAM", commission(-1, 40, 45));
+    EXPECT_EQ("INVALID_INPUT", commission(-2, 40, 45));
+    EXPECT_EQ("334.0", commission(1, 40, 45));
+    EXPECT_EQ("140.5", commission(1, 40, 1));
+    EXPECT_EQ("10.0", commission(1, 1, 1));
+
 		//T, F, T, F, T, F
     EXPECT_EQ("INVALID_INPUT", commission(0, 0, 0));
     //T, F, T, F, F, T

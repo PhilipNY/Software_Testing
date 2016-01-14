@@ -57,6 +57,22 @@ TEST(nextdate, C2) {
 }
 
 TEST(nextdate, MCDC) {
+		EXPECT_EQ("INVALID_INPUT", nextdate(1811, 7, 15));
+    EXPECT_EQ("OVER_MAX_YEAR", nextdate(2012, 12, 31));
+
+    EXPECT_EQ("INVALID_INPUT", nextdate(2012, 2, 30));
+    EXPECT_EQ("INVALID_INPUT", nextdate(2011, 2, 30));
+    EXPECT_EQ("2012/3/1", nextdate(2012, 2, 29));
+    EXPECT_EQ("2012/2/29", nextdate(2012, 2, 28));
+
+    EXPECT_EQ("INVALID_INPUT", nextdate(1912, 4, 31));
+    EXPECT_EQ("1912/5/1", nextdate(1912, 4, 30));
+    EXPECT_EQ("1912/4/30", nextdate(1912, 4, 29));
+
+    EXPECT_EQ("1913/1/1", nextdate(1912, 12, 31));
+    EXPECT_EQ("1912/11/1", nextdate(1912, 10, 31));
+    EXPECT_EQ("1912/10/31", nextdate(1912, 10, 30));
+
 		/*first if*/
 		//T, F, T, F, T, F
     EXPECT_EQ("INVALID_INPUT", nextdate(1811, 0, 0));
