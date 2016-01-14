@@ -92,13 +92,15 @@ TEST(commission, MCDC) {
 
 int main(int argc, char **argv)
 {
-	::testing::InitGoogleTest(&argc, argv);
-  std::string filter = argv[1];
-  if(filter.compare("MCDC") != 0) {
-    ::testing::GTEST_FLAG(filter) = "*.C" + filter;
-  }
-  else {
-    ::testing::GTEST_FLAG(filter) = "*." + filter;
-  }
-  return RUN_ALL_TESTS();
+		::testing::InitGoogleTest(&argc, argv);
+		if(argc > 1){
+				std::string test = argv[1];
+				if(test.compare("MCDC") != 0) {
+					::testing::GTEST_FLAG(filter) = "*.C" + test;
+				}
+				else {
+					::testing::GTEST_FLAG(filter) = "*." + test;
+				}
+		}
+		return RUN_ALL_TESTS();
 }
